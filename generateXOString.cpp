@@ -2,18 +2,18 @@
 #include <sstream>
 
 using std::string;
-using std::stringstream;
+using std::ostringstream;
 
 string generateXOString(int countX, int countO)
 {
   (void)countX;
   (void)countO;
-  stringstream ss;
+  ostringstream oss;
 
   for (int i(0); i < countX; ++i)
-    ss << 'X';
+    oss << 'X';
   for (int i(0); i < countO; ++i)
-    ss << 'O';
+    oss << 'O';
 
-  return ss.str();
+  return oss.str();
 }

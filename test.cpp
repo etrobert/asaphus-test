@@ -4,7 +4,7 @@
 
 using std::string;
 using std::to_string;
-using std::stringstream;
+using std::ostringstream;
 
 class TestXOStringTest : public CppUnit::TestCase
 {
@@ -47,9 +47,9 @@ class TestXOStringTest : public CppUnit::TestCase
 void testGenerate(int countX, int countO)
 {
   string s = generateXOString(countX, countO);
-  stringstream errorss;
-  errorss << "countX: " << countX << "; countY: " << countO << "; s: " << s;
-  CPPUNIT_ASSERT_MESSAGE(errorss.str(), testXOString(countX, countO, s));
+  ostringstream message;
+  message << "countX: " << countX << "; countY: " << countO << "; s: " << s;
+  CPPUNIT_ASSERT_MESSAGE(message.str(), testXOString(countX, countO, s));
 }
 
 class GenerateXOStringTest : public CppUnit::TestCase
