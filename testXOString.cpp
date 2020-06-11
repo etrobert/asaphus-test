@@ -2,13 +2,13 @@
 
 using std::string;
 
-bool testXOString(int countX, int countO, string s)
+bool testXOString(unsigned int countX, unsigned int countO, string s)
 {
-  int actualCountX(0);
-  int actualCountO(0);
+  unsigned int actualCountX(0);
+  unsigned int actualCountO(0);
 
   char previousChar = s[0];
-  int currentCharCount = 0;
+  unsigned int currentCharCount = 0;
 
   for (char c: s)
   {

@@ -50,15 +50,15 @@ class TestXOStringTest : public CppUnit::TestCase
   }
 };
 
-int ceilDivide(int x, int y)
+unsigned int ceilDivide(unsigned int x, unsigned int y)
 {
   return (x + y - 1) / y;
 }
 
-void testGenerate(int countX, int countO)
+void testGenerate(unsigned int countX, unsigned int countO)
 {
-  const int big = max(countX, countO);
-  const int small = min(countX, countO);
+  const unsigned int big = max(countX, countO);
+  const unsigned int small = min(countX, countO);
   // The most extreme count difference is when we have XXXOXXXOXXX...
   // With every three X divided by one O or the other way around
   // In this case we have one O for every three X, minus one

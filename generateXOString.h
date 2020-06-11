@@ -2,4 +2,4 @@
 
 #include <string>
 
-std::string generateXOString(int countX, int countO);
+std::string generateXOString(unsigned int countX, unsigned int countO);

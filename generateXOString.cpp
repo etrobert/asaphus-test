@@ -9,14 +9,14 @@ using std::invalid_argument;
 
 enum Char { X, O };
 
-string generateXOString(int countX, int countO)
+string generateXOString(unsigned int countX, unsigned int countO)
 {
   ostringstream oss;
 
-  int counts[2] = { [X]=countX, [O]=countO };
+  unsigned int counts[2] = { [X]=countX, [O]=countO };
 
   Char lastChar = X;
-  int lastCharCount = 0;
+  unsigned int lastCharCount = 0;
 
   const auto addChar = [&oss, &counts, &lastChar, &lastCharCount](Char c) {
     if (counts[c] == 0)

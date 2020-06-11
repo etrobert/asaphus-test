@@ -2,4 +2,4 @@
 
 #include <string>
 
-bool testXOString(int countX, int countO, std::string s);
+bool testXOString(unsigned int countX, unsigned int countO, std::string s);
