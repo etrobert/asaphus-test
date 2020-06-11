@@ -115,5 +115,5 @@ int main()
   CppUnit::TextUi::TestRunner runner;
   runner.addTest(new TestXOStringTest("TestXOStringTest"));
   runner.addTest(new GenerateXOStringTest("GenerateXOStringTest"));
-  runner.run();
+  return !runner.run(); // Implicit conversion from bool to int
 }
