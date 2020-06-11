@@ -6,7 +6,6 @@
 #include "testXOString.h"
 
 using std::string;
-using std::to_string;
 using std::ostringstream;
 using std::invalid_argument;
 using std::min;
