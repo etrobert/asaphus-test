@@ -13,14 +13,12 @@ string generateXOString(int countX, int countO)
 {
   ostringstream oss;
 
-  int counts[2];
-  counts[X] = countX;
-  counts[O] = countO;
+  int counts[2] = { [X]=countX, [O]=countO };
 
   Char lastChar = X;
   int lastCharCount = 0;
 
-  auto addChar = [&oss, &counts, &lastChar, &lastCharCount](Char c) {
+  const auto addChar = [&oss, &counts, &lastChar, &lastCharCount](Char c) {
     if (counts[c] == 0)
       throw invalid_argument("Cannot generate XO string with the given values");
     --counts[c];
@@ -38,7 +36,7 @@ string generateXOString(int countX, int countO)
 
   while (counts[X] > 0 || counts[O] > 0)
   {
-    Char highestCountChar = counts[X] > counts[O] ? X : O;
+    const Char highestCountChar = counts[X] > counts[O] ? X : O;
     if (lastChar == highestCountChar && lastCharCount == 3)
       addChar(highestCountChar == X ? O : X);
     else
