@@ -19,10 +19,7 @@ string generateXOString(unsigned int countX, unsigned int countO)
   unsigned int lastCharCount = 0;
 
   const auto addChar = [&oss, &counts, &lastChar, &lastCharCount](Char c) {
-    if (counts[c] == 0)
-      throw invalid_argument("Cannot generate XO string with the given values");
     --counts[c];
-
     oss << (c == X ? 'X' : 'O');
 
     if (lastChar == c)
@@ -38,7 +35,12 @@ string generateXOString(unsigned int countX, unsigned int countO)
   {
     const Char highestCountChar = counts[X] > counts[O] ? X : O;
     if (lastChar == highestCountChar && lastCharCount == 3)
-      addChar(highestCountChar == X ? O : X);
+    {
+      const Char lowestCountChar = highestCountChar == X ? O : X;
+      if (counts[lowestCountChar] == 0)
+        throw invalid_argument("Cannot generate XO string with the given values");
+      addChar(lowestCountChar);
+    }
     else
       addChar(highestCountChar);
   }
