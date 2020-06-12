@@ -42,7 +42,7 @@ string generateXOString(unsigned int countX, unsigned int countO)
     {
       const Char lowestCountChar { highestCountChar == X ? O : X };
       if (counts[lowestCountChar] == 0)
-        throw invalid_argument("Cannot generate XO string with the given values");
+        throw invalid_argument("Invalid count parameters");
       addChar(lowestCountChar);
     }
     else
