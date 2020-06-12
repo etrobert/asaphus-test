@@ -1,4 +1,6 @@
 #include <cppunit/TestCase.h>
+#include <cppunit/ui/text/TestRunner.h>
+
 #include <stdexcept>
 #include <algorithm>
 
@@ -110,8 +112,6 @@ class GenerateXOStringTest : public CppUnit::TestCase
       testGenerate(10, 53);
     }
 };
-
-#include <cppunit/ui/text/TestRunner.h>
 
 int main()
 {
