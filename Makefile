@@ -1,11 +1,26 @@
+CXX=g++
 CFLAGS=-Wall -Werror -Wextra
-LDFLAGS=-lcppunit
+LDLIBS=-lcppunit
 NAME=asaphus-test
 
-.PHONY: run
+SRCS=test.cpp testXOString.cpp generateXOString.cpp
+OBJS=$(subst .cpp,.o,$(SRCS))
 
-$(NAME): generateXOString.cpp test.cpp testXOString.cpp
-	g++ -o $@  $^ $(CFLAGS) $(LDFLAGS)
+.PHONY: run all clean
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CXX) -o $@ $(OBJS) $(LDLIBS)
+
+test.o: test.cpp testXOString.h generateXOString.h
+
+testXOString.o: testXOString.cpp testXOString.h
+
+generateXOString.o: generateXOString.cpp generateXOString.h
+
+clean:
+	rm -f $(OBJS)
 
 run: $(NAME)
 	./$(NAME)
