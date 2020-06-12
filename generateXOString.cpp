@@ -34,7 +34,10 @@ string generateXOString(unsigned int countX, unsigned int countO)
 
   while (counts[X] > 0 || counts[O] > 0)
   {
+    // We will attempt to add the Char that still has the highest count
     const Char highestCountChar = counts[X] > counts[O] ? X : O;
+    // Except if the last 3 characters were the highest count char
+    // in which case we try to add the lowest count char
     if (lastChar == highestCountChar && lastCharCount == 3)
     {
       const Char lowestCountChar = highestCountChar == X ? O : X;
