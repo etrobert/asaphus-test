@@ -105,6 +105,8 @@ class GenerateXOStringTest : public CppUnit::TestCase
 
       testGenerate(20, 53);
 
+      testGenerate(99997, 99998);
+
       // Should throw
       testGenerate(4, 0);
       testGenerate(0, 4);
