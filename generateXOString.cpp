@@ -12,6 +12,7 @@ enum Char { X, O };
 string generateXOString(unsigned int countX, unsigned int countO)
 {
   ostringstream oss;
+  oss.exceptions(ostringstream::failbit | ostringstream::badbit);
 
   unsigned int counts[2] = { [X]=countX, [O]=countO };
 
