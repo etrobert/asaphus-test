@@ -61,8 +61,8 @@ void testGenerate(unsigned int countX, unsigned int countO)
   ostringstream message;
   message << "countX: " << countX << "; countY: " << countO;
 
-  const unsigned int big = max(countX, countO);
-  const unsigned int small = min(countX, countO);
+  const unsigned int big { max(countX, countO) };
+  const unsigned int small { min(countX, countO) };
   // The most extreme count difference is when we have XXXOXXXOXXX...
   // With every three X divided by one O or the other way around
   // In this case we have one O for every three X, minus one
@@ -74,7 +74,7 @@ void testGenerate(unsigned int countX, unsigned int countO)
     return;
   }
 
-  string s = generateXOString(countX, countO);
+  const string s { generateXOString(countX, countO) };
   message << "; s: " << s;
   CPPUNIT_ASSERT_MESSAGE(message.str(), testXOString(countX, countO, s));
 }
