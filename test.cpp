@@ -56,6 +56,9 @@ unsigned int ceilDivide(unsigned int x, unsigned int y)
 
 void testGenerate(unsigned int countX, unsigned int countO)
 {
+  ostringstream message;
+  message << "countX: " << countX << "; countY: " << countO;
+
   const unsigned int big = max(countX, countO);
   const unsigned int small = min(countX, countO);
   // The most extreme count difference is when we have XXXOXXXOXXX...
@@ -64,13 +67,13 @@ void testGenerate(unsigned int countX, unsigned int countO)
   // Every count difference bigger than that should trigger an exception
   if (ceilDivide(big, 3) > small + 1)
   {
-    CPPUNIT_ASSERT_THROW(generateXOString(countX, countO), invalid_argument);
+    CPPUNIT_ASSERT_THROW_MESSAGE(
+      message.str(), generateXOString(countX, countO), invalid_argument);
     return;
   }
 
   string s = generateXOString(countX, countO);
-  ostringstream message;
-  message << "countX: " << countX << "; countY: " << countO << "; s: " << s;
+  message << "; s: " << s;
   CPPUNIT_ASSERT_MESSAGE(message.str(), testXOString(countX, countO, s));
 }
 
