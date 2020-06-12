@@ -4,11 +4,11 @@ using std::string;
 
 bool testXOString(unsigned int countX, unsigned int countO, string s)
 {
-  unsigned int actualCountX(0);
-  unsigned int actualCountO(0);
+  unsigned int actualCountX{0};
+  unsigned int actualCountO{0};
 
-  char previousChar = s[0];
-  unsigned int currentCharCount = 0;
+  char previousChar{'X'};
+  unsigned int currentCharCount{0};
 
   for (char c: s)
   {
